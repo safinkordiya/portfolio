@@ -1,0 +1,234 @@
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #0b0c2a;
+  color: #f5f5f5;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(11, 12, 42, 0.85);  /* Lighter shade of the background */
+  padding: 20px 40px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 255, 224, 0.15);
+}
+
+/* Header Title Styling */
+header h1 {
+  color: #00ffe0;
+  font-size: 32px;  /* Increased size for better visibility */
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Navigation Links */
+nav a {
+  color: #ccc;
+  margin-left: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav a.active, nav a:hover {
+  color: #00ffe0;
+}
+
+
+/* Section Styling */
+section {
+  padding: 120px 30px 80px;
+  max-width: 1000px;
+  margin: auto;
+  opacity: 0; /* Hide sections by default */
+  transform: translateY(50px); /* Start from below */
+  transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
+}
+
+section.visible {
+  opacity: 1; /* Make sections visible when scrolled into view */
+  transform: translateY(0); /* Slide sections up */
+}
+
+/* Glass Effect Box Styling */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 25px rgba(0, 255, 224, 0.1);
+  margin-bottom: 40px;
+}
+
+/* Call-to-Action Button Styling */
+.cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.cta button {
+  background: #00ffe0;
+  color: #000;
+  padding: 12px 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cta button:hover {
+  background: #00cbbd;
+}
+
+/* Grid Layout for Skills and Projects */
+.skills-grid, .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 20px;
+}
+
+.skills-grid .glass, .projects-grid .glass {
+  text-align: center;
+  padding: 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform 0.3s;
+}
+
+.skills-grid .glass:hover, .projects-grid .glass:hover {
+  transform: scale(1.05);
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: 50px 20px 30px;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+footer a {
+  color: #00ffe0;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+/* Background Image Styling */
+#background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Prevent Horizontal Scrolling */
+body::before {
+  content: "";
+  display: block;
+  height: 80px;
+}
+
+/* Form Input Fields */
+form input, form textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+/* Form Button Styling */
+form button {
+  background: #00ffe0;
+  color: #000;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+form button:hover {
+  background: #00cbbd;
+}
+
+/* Headings Styling */
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 10px;
+  color: #00ffe0;
+}
+
+p {
+  margin: 10px 0;
+}
+
+/* Hover Effect Styling */
+.hover-effect {
+  display: inline-block;
+  font-weight: 600;
+  color: #f5f5f5;
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.hover-effect:hover {
+  color: #00ffe0; /* Change to the color you want */
+  transform: scale(1.1);
+}
+
+/* Active Nav Link Styling */
+nav a.active {
+  color: #8bc8fa; /* Highlight color */
+  text-decoration: underline;
+}
+
+/* Section Visibility Based on Scroll */
+section {
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+}
+
+section.visible {
+  opacity: 1;
+}
+
+/* Focused Form Fields */
+form input:focus, form textarea:focus {
+  outline: none;
+  border: 2px solid #00ffe0;
+  box-shadow: 0 0 5px rgba(0, 255, 224, 0.5);
+}
+
+/* Box Sizing Rule */
+* {
+  box-sizing: border-box;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .skills-grid, .projects-grid {
+    grid-template-columns: 1fr; /* Stack items vertically */
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+
+  nav a {
+    margin-left: 15px;
+  }
+}
