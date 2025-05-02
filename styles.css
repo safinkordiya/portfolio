@@ -5,30 +5,40 @@ body {
   color: #f5f5f5;
   scroll-behavior: smooth;
   line-height: 1.6;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden;
 }
+
+* {
+  box-sizing: border-box;
+}
+
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(11, 12, 42, 0.85);  /* Lighter shade of the background */
+  background: rgba(11, 12, 42, 0.85);
   padding: 20px 40px;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 255, 224, 0.15);
+  flex-wrap: wrap;
 }
 
-/* Header Title Styling */
 header h1 {
   color: #00ffe0;
-  font-size: 32px;  /* Increased size for better visibility */
+  font-size: 32px;
   margin: 0;
   font-family: 'Orbitron', sans-serif;
 }
 
-/* Navigation Links */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 nav a {
   color: #ccc;
   margin-left: 25px;
@@ -41,23 +51,20 @@ nav a.active, nav a:hover {
   color: #00ffe0;
 }
 
-
-/* Section Styling */
 section {
   padding: 120px 30px 80px;
   max-width: 1000px;
   margin: auto;
-  opacity: 0; /* Hide sections by default */
-  transform: translateY(50px); /* Start from below */
-  transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 section.visible {
-  opacity: 1; /* Make sections visible when scrolled into view */
-  transform: translateY(0); /* Slide sections up */
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Glass Effect Box Styling */
 .glass {
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(12px);
@@ -67,7 +74,6 @@ section.visible {
   margin-bottom: 40px;
 }
 
-/* Call-to-Action Button Styling */
 .cta {
   display: flex;
   gap: 1rem;
@@ -90,7 +96,6 @@ section.visible {
   background: #00cbbd;
 }
 
-/* Grid Layout for Skills and Projects */
 .skills-grid, .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -110,7 +115,6 @@ section.visible {
   transform: scale(1.05);
 }
 
-/* Footer Styling */
 footer {
   text-align: center;
   padding: 50px 20px 30px;
@@ -124,7 +128,6 @@ footer a {
   margin: 0 8px;
 }
 
-/* Background Image Styling */
 #background {
   position: absolute;
   top: 0;
@@ -134,14 +137,12 @@ footer a {
   z-index: -1;
 }
 
-/* Prevent Horizontal Scrolling */
 body::before {
   content: "";
   display: block;
   height: 80px;
 }
 
-/* Form Input Fields */
 form input, form textarea {
   width: 100%;
   margin-bottom: 15px;
@@ -151,7 +152,6 @@ form input, form textarea {
   font-size: 1rem;
 }
 
-/* Form Button Styling */
 form button {
   background: #00ffe0;
   color: #000;
@@ -166,7 +166,6 @@ form button:hover {
   background: #00cbbd;
 }
 
-/* Headings Styling */
 h1, h2, h3 {
   font-family: 'Orbitron', sans-serif;
   margin-bottom: 10px;
@@ -177,7 +176,6 @@ p {
   margin: 10px 0;
 }
 
-/* Hover Effect Styling */
 .hover-effect {
   display: inline-block;
   font-weight: 600;
@@ -186,49 +184,82 @@ p {
 }
 
 .hover-effect:hover {
-  color: #00ffe0; /* Change to the color you want */
+  color: #00ffe0;
   transform: scale(1.1);
 }
 
-/* Active Nav Link Styling */
 nav a.active {
-  color: #8bc8fa; /* Highlight color */
+  color: #8bc8fa;
   text-decoration: underline;
 }
 
-/* Section Visibility Based on Scroll */
-section {
-  opacity: 0;
-  transition: opacity 0.7s ease-in-out;
-}
-
-section.visible {
-  opacity: 1;
-}
-
-/* Focused Form Fields */
 form input:focus, form textarea:focus {
   outline: none;
   border: 2px solid #00ffe0;
   box-shadow: 0 0 5px rgba(0, 255, 224, 0.5);
 }
 
-/* Box Sizing Rule */
-* {
-  box-sizing: border-box;
-}
-
-/* Media Query for Smaller Screens */
-@media (max-width: 768px) {
-  .skills-grid, .projects-grid {
-    grid-template-columns: 1fr; /* Stack items vertically */
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  header {
+    padding: 15px 20px;
   }
 
+  section {
+    padding: 100px 20px 60px;
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 768px) {
   header h1 {
     font-size: 24px;
   }
 
   nav a {
     margin-left: 15px;
+    font-size: 0.9rem;
+  }
+
+  .skills-grid, .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .glass {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  .cta button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  section {
+    padding: 90px 15px 50px;
+  }
+
+  footer {
+    font-size: 0.85rem;
   }
 }
